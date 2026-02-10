@@ -6,7 +6,6 @@ import {
   FaUsers,
   FaShoppingBag,
   FaPercentage,
-  FaUser,
   FaChevronRight,
   FaChevronDown,
   FaTimes,
@@ -29,10 +28,25 @@ function SideMenu({ isOpen, onClose }) {
 
       if (path.includes("navbar")) setActiveMenu("navbar");
       else if (path.includes("sliders")) setActiveMenu("sliders");
-      else if (path.includes("section")) setActiveMenu("section");
+      else if (path.includes("sections")) setActiveMenu("sections");
       else if (path.includes("review")) setActiveMenu("review");
       else if (path.includes("category")) setActiveMenu("category");
       else setActiveMenu("customize");
+    } else if (path.startsWith("/products")) {
+      setActiveMenu("products");
+      setOpenMenu(null);
+    } else if (path.startsWith("/customers")) {
+      setActiveMenu("customers");
+      setOpenMenu(null);
+    } else if (path.startsWith("/orders")) {
+      setActiveMenu("orders");
+      setOpenMenu(null);
+    } else if (path.startsWith("/discounts")) {
+      setActiveMenu("discounts");
+      setOpenMenu(null);
+    } else if (path.startsWith("/userandpermission")) {
+      setActiveMenu("users");
+      setOpenMenu(null);
     } else if (path.startsWith("/dashboard")) {
       setActiveMenu("dashboard");
       setOpenMenu(null);
@@ -43,18 +57,16 @@ function SideMenu({ isOpen, onClose }) {
     setOpenMenu((prev) => (prev === name ? null : name));
   };
 
-  const customizeChildren = [
-    "navbar",
-    "sliders",
-    "sections",
-    "review",
-    "category",
-  ];
+  const customizeChildren = ["navbar", "sliders", "sections", "review", "category"];
   const isCustomizeActive = customizeChildren.includes(activeMenu);
 
   const mainItem = (isActive) =>
     `flex items-center w-full px-5 py-3 rounded-xl transition text-sm
-     ${isActive ? "bg-orange-500 text-white font-medium" : "text-gray-500 hover:bg-gray-100"}`;
+     ${
+       isActive
+         ? "bg-orange-500 text-white font-medium"
+         : "text-gray-500 hover:bg-gray-100"
+     }`;
 
   const subItem = (name) =>
     `ml-10 mr-4 px-4 py-2 rounded-lg text-sm text-left transition
@@ -115,18 +127,12 @@ function SideMenu({ isOpen, onClose }) {
           {/* CUSTOMIZE */}
           <button
             onClick={() => toggleMenu("customize")}
-            className={mainItem(
-              isCustomizeActive || activeMenu === "customize",
-            )}
+            className={mainItem(isCustomizeActive || activeMenu === "customize")}
           >
             <FaSlidersH />
             <span className="ml-3">Customize</span>
             <span className={arrow}>
-              {openMenu === "customize" ? (
-                <FaChevronDown />
-              ) : (
-                <FaChevronRight />
-              )}
+              {openMenu === "customize" ? <FaChevronDown /> : <FaChevronRight />}
             </span>
           </button>
 
@@ -141,6 +147,7 @@ function SideMenu({ isOpen, onClose }) {
               >
                 Navbar
               </button>
+
               <button
                 onClick={() => {
                   navigate("/customize/sliders");
@@ -150,58 +157,97 @@ function SideMenu({ isOpen, onClose }) {
               >
                 Sliders
               </button>
+
               <button
                 onClick={() => {
                   navigate("/customize/sections");
                   onClose?.();
                 }}
-                className={subItem("section")}
+                className={subItem("sections")}
               >
                 Sections
               </button>
-              
-              <button className={subItem("review")}>Review</button>
-              <button className={subItem("category")}>Category</button>
+
+              <button
+                onClick={() => {
+                  navigate("/customize/review");
+                  onClose?.();
+                }}
+                className={subItem("review")}
+              >
+                Review
+              </button>
+
+              <button
+                onClick={() => {
+                  navigate("/customize/category");
+                  onClose?.();
+                }}
+                className={subItem("category")}
+              >
+                Category
+              </button>
             </div>
           )}
 
           {/* PRODUCTS */}
-          <button className={mainItem(activeMenu === "products")}>
+          <button
+            onClick={() => {
+              navigate("/products");
+              onClose?.();
+            }}
+            className={mainItem(activeMenu === "products")}
+          >
             <FaBoxOpen />
             <span className="ml-3">Products</span>
-            <span className={arrow}>
-              <FaChevronRight />
-            </span>
           </button>
 
           {/* CUSTOMERS */}
-          <button className={mainItem(activeMenu === "customers")}>
-            <FaUser />
+          <button
+            onClick={() => {
+              navigate("/customers");
+              onClose?.();
+            }}
+            className={mainItem(activeMenu === "customers")}
+          >
+            <FaUsers />
             <span className="ml-3">Customers</span>
-            <span className={arrow}>
-              <FaChevronRight />
-            </span>
           </button>
 
           {/* ORDERS */}
-          <button className={mainItem(activeMenu === "orders")}>
+          <button
+            onClick={() => {
+              navigate("/orders");
+              onClose?.();
+            }}
+            className={mainItem(activeMenu === "orders")}
+          >
             <FaShoppingBag />
             <span className="ml-3">Orders</span>
-            <span className={arrow}>
-              <FaChevronRight />
-            </span>
           </button>
 
           {/* DISCOUNTS */}
-          <button className={mainItem(activeMenu === "discounts")}>
+          <button
+            onClick={() => {
+              navigate("/discounts");
+              onClose?.();
+            }}
+            className={mainItem(activeMenu === "discounts")}
+          >
             <FaPercentage />
             <span className="ml-3">Discounts</span>
           </button>
 
-          {/* USERS */}
-          <button className={mainItem(activeMenu === "users")}>
+          {/* USERS & PERMISSIONS */}
+          <button
+            onClick={() => {
+              navigate("/userandpermission");
+              onClose?.();
+            }}
+            className={mainItem(activeMenu === "users")}
+          >
             <FaUsers />
-            <span className="ml-3">Users & Permissions</span>
+            <span className="ml-3">User & Permissions</span>
           </button>
         </div>
       </div>

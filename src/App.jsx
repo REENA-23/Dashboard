@@ -5,6 +5,8 @@ import DashboardPage from "./pages/DashboardPage";
 import NavbarPage from "./pages/NavbarPage";
 import SliderPage from "./pages/SliderPage";
 import SectionPage from "./pages/SectionPage";
+import UserAndPermissionPage from "./pages/UserAndPermissionPage";
+import NotificationsPage from "./pages/NotificationsPage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/customize/navbar" element={<NavbarPage />} />
           <Route path="/customize/sliders" element={<SliderPage/>}/>
           <Route path="/customize/sections" element={<SectionPage/>}/>
+          <Route path="/userandpermission" element={<UserAndPermissionPage/>}/>
+          <Route path="/notifications" element={<NotificationsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
