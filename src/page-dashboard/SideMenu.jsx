@@ -33,14 +33,23 @@ function SideMenu({ isOpen, onClose }) {
       else if (path.includes("category")) setActiveMenu("category");
       else setActiveMenu("customize");
     } else if (path.startsWith("/products")) {
-      setActiveMenu("products");
-      setOpenMenu(null);
+      setOpenMenu("products");
+
+      if (path.includes("add-product")) setActiveMenu("add-product");
+      else if (path.includes("view-products")) setActiveMenu("view-products");
+      else if (path.includes("inventory")) setActiveMenu("inventory");
+      else if (path.includes("categories")) setActiveMenu("categories");
+      else setActiveMenu("products");
     } else if (path.startsWith("/customers")) {
       setActiveMenu("customers");
       setOpenMenu(null);
     } else if (path.startsWith("/orders")) {
-      setActiveMenu("orders");
-      setOpenMenu(null);
+      setOpenMenu("orders");
+
+      if (path.includes("all-orders")) setActiveMenu("all-orders");
+      else if (path.includes("drafts")) setActiveMenu("drafts");
+      else if (path.includes("abandoned")) setActiveMenu("abandoned");
+      else setActiveMenu("orders");
     } else if (path.startsWith("/discounts")) {
       setActiveMenu("discounts");
       setOpenMenu(null);
@@ -56,8 +65,21 @@ function SideMenu({ isOpen, onClose }) {
   const toggleMenu = (name) => {
     setOpenMenu((prev) => (prev === name ? null : name));
   };
+  const productsChildren = [
+    "add-product",
+    "view-products",
+    "inventory",
+    "categories",
+  ];
+  const ordersChildren = ["all-orders", "drafts", "abandoned"];
 
-  const customizeChildren = ["navbar", "sliders", "sections", "review", "category"];
+  const customizeChildren = [
+    "navbar",
+    "sliders",
+    "sections",
+    "review",
+    "category",
+  ];
   const isCustomizeActive = customizeChildren.includes(activeMenu);
 
   const mainItem = (isActive) =>
@@ -100,7 +122,7 @@ function SideMenu({ isOpen, onClose }) {
       >
         {/* Header */}
         <div className="flex justify-between items-center px-6 py-6">
-          <div className="w-14 h-14 rounded-full bg-black text-white flex items-center justify-center font-bold text-xl">
+          <div className="w-14 h-14 font-ivymode rounded-full bg-black text-white flex items-center justify-center font-bold text-xl">
             TWB
           </div>
 
@@ -126,13 +148,27 @@ function SideMenu({ isOpen, onClose }) {
 
           {/* CUSTOMIZE */}
           <button
-            onClick={() => toggleMenu("customize")}
-            className={mainItem(isCustomizeActive || activeMenu === "customize")}
+            onClick={() => {
+              if (openMenu !== "customize") {
+                setOpenMenu("customize");
+                setActiveMenu("navbar");
+                navigate("/customize/navbar");
+              } else {
+                setOpenMenu(null);
+              }
+            }}
+            className={mainItem(
+              isCustomizeActive || activeMenu === "customize",
+            )}
           >
             <FaSlidersH />
             <span className="ml-3">Customize</span>
             <span className={arrow}>
-              {openMenu === "customize" ? <FaChevronDown /> : <FaChevronRight />}
+              {openMenu === "customize" ? (
+                <FaChevronDown />
+              ) : (
+                <FaChevronRight />
+              )}
             </span>
           </button>
 
@@ -193,14 +229,51 @@ function SideMenu({ isOpen, onClose }) {
           {/* PRODUCTS */}
           <button
             onClick={() => {
-              navigate("/products");
-              onClose?.();
+              if (openMenu !== "products") {
+                setOpenMenu("products");
+                setActiveMenu("add-product");
+                navigate("/products/add-product"); 
+              } else {
+                setOpenMenu(null);
+              }
             }}
-            className={mainItem(activeMenu === "products")}
+            className={mainItem(productsChildren.includes(activeMenu))}
           >
             <FaBoxOpen />
             <span className="ml-3">Products</span>
+            <span className={arrow}>
+              {openMenu === "products" ? <FaChevronDown /> : <FaChevronRight />}
+            </span>
           </button>
+
+          {openMenu === "products" && (
+            <div className="space-y-1">
+              <button
+                onClick={() => navigate("/products/add-product")}
+                className={subItem("add-product")}
+              >
+                Add Product
+              </button>
+              <button
+                onClick={() => navigate("/products/view-products")}
+                className={subItem("view-products")}
+              >
+                View Products
+              </button>
+              <button
+                onClick={() => navigate("/products/inventory")}
+                className={subItem("inventory")}
+              >
+                Inventory
+              </button>
+              <button
+                onClick={() => navigate("/products/categories")}
+                className={subItem("categories")}
+              >
+                Categories
+              </button>
+            </div>
+          )}
 
           {/* CUSTOMERS */}
           <button
@@ -217,14 +290,45 @@ function SideMenu({ isOpen, onClose }) {
           {/* ORDERS */}
           <button
             onClick={() => {
-              navigate("/orders");
-              onClose?.();
+              if (openMenu !== "orders") {
+                setOpenMenu("orders");
+                setActiveMenu("all-orders");
+                navigate("/orders/all-orders"); 
+              } else {
+                setOpenMenu(null);
+              }
             }}
-            className={mainItem(activeMenu === "orders")}
+            className={mainItem(ordersChildren.includes(activeMenu))}
           >
             <FaShoppingBag />
             <span className="ml-3">Orders</span>
+            <span className={arrow}>
+              {openMenu === "orders" ? <FaChevronDown /> : <FaChevronRight />}
+            </span>
           </button>
+
+          {openMenu === "orders" && (
+            <div className="space-y-1">
+              <button
+                onClick={() => navigate("/orders/all-orders")}
+                className={subItem("all-orders")}
+              >
+                All Orders
+              </button>
+              <button
+                onClick={() => navigate("/orders/drafts")}
+                className={subItem("drafts")}
+              >
+                Drafts
+              </button>
+              <button
+                onClick={() => navigate("/orders/abandoned")}
+                className={subItem("abandoned")}
+              >
+                Abandoned Checkouts
+              </button>
+            </div>
+          )}
 
           {/* DISCOUNTS */}
           <button
