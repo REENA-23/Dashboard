@@ -41,17 +41,17 @@ export default function NewProduct() {
 
         <form onSubmit={handleSubmit}>
           {/* GRID */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
             {/* LEFT */}
             <div className="space-y-4">
               {/* Product Images */}
               <div>
                 <p className="text-sm text-gray-600 mb-1">Product Images</p>
                 <div className="border border-dashed border-gray-300 bg-[#f4f4f4] rounded-lg p-4 text-center">
-                  <div className="flex gap-3 justify-center mb-3 flex-wrap">
-                    <div className="w-16 h-20 sm:w-20 sm:h-24 bg-[#1f1f1f] rounded-md" />
-                    <div className="w-16 h-20 sm:w-20 sm:h-24 bg-[#1f1f1f] rounded-md" />
-                    <div className="w-16 h-20 sm:w-20 sm:h-24 bg-[#1f1f1f] rounded-md" />
+                  <div className="flex gap-3 justify-center mb-3">
+                    <div className="w-16 h-20 md:w-20 md:h-24 bg-[#1f1f1f] rounded-md flex-shrink-0" />
+                    <div className="w-16 h-20 md:w-20 md:h-24 bg-[#1f1f1f] rounded-md flex-shrink-0" />
+                    <div className="w-16 h-20 md:w-20 md:h-24 bg-[#1f1f1f] rounded-md flex-shrink-0" />
                   </div>
                   <button
                     type="button"
@@ -175,7 +175,9 @@ export default function NewProduct() {
 
               {/* Discount */}
               <div>
-                <p className="text-sm text-gray-600 mb-1">Discount Percentage</p>
+                <p className="text-sm text-gray-600 mb-1">
+                  Discount Percentage
+                </p>
                 <div className="flex items-center gap-3">
                   <input
                     type="range"
