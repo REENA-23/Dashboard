@@ -1,5 +1,5 @@
-import { FaCheckCircle, FaImage, FaChevronDown, FaPlus } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
+import { FaCheckCircle, FaImage, FaChevronDown, FaPlus } from "react-icons/fa";
 
 export default function NewProduct() {
   const [success, setSuccess] = useState(false);
@@ -12,19 +12,19 @@ export default function NewProduct() {
   };
 
   useEffect(() => {
-  if (success) {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
-}, [success]);
+    if (success) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [success]);
 
   return (
     <div className="p-3 sm:p-4 md:p-6 bg-[#f6f9fc] min-h-screen">
       {/* Success Message */}
       {success && (
-        <div className="flex justify-end">
+        <div className="mb-3 flex justify-end">
           <div className="flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-lg shadow">
             <FaCheckCircle />
             <span>Product Added Successfully!</span>
@@ -47,11 +47,11 @@ export default function NewProduct() {
               {/* Product Images */}
               <div>
                 <p className="text-sm text-gray-600 mb-1">Product Images</p>
-                <div className="border h-[180px] border-dashed border-gray-300 bg-[#f4f4f4] rounded-lg p-4 text-center">
+                <div className="border border-dashed border-gray-300 bg-[#f4f4f4] rounded-lg p-4 text-center">
                   <div className="flex gap-3 justify-center mb-3 flex-wrap">
-                    <div className="w-20 h-24 bg-[#1f1f1f] rounded-md" />
-                    <div className="w-20 h-24 bg-[#1f1f1f] rounded-md" />
-                    <div className="w-20 h-24 bg-[#1f1f1f] rounded-md" />
+                    <div className="w-16 h-20 sm:w-20 sm:h-24 bg-[#1f1f1f] rounded-md" />
+                    <div className="w-16 h-20 sm:w-20 sm:h-24 bg-[#1f1f1f] rounded-md" />
+                    <div className="w-16 h-20 sm:w-20 sm:h-24 bg-[#1f1f1f] rounded-md" />
                   </div>
                   <button
                     type="button"
@@ -141,11 +141,11 @@ export default function NewProduct() {
               {/* Size Chart */}
               <div>
                 <p className="text-sm text-gray-600 mb-1">Product Size Chart</p>
-                <div className="border border-dashed border-gray-300 bg-[#f4f4f4] rounded-lg h-[180px] flex flex-col items-center justify-center">
+                <div className="border border-dashed border-gray-300 bg-[#f4f4f4] rounded-lg min-h-[160px] flex flex-col items-center justify-center">
                   <FaImage className="text-orange-500 text-2xl mb-2" />
                   <button
                     type="button"
-                    className="bg-black text-white font-poppins px-4 py-1.5 rounded text-sm"
+                    className="bg-black text-white px-4 py-1.5 rounded text-sm"
                   >
                     Upload
                   </button>
