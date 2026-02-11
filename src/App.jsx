@@ -12,6 +12,8 @@ import NewProduct from "./page-product/NewProduct";
 import View from "./page-product/View";
 import Inventory from "./page-product/Inventory";
 import Category from "./page-product/Category";
+import Orders from "./page-order/Orders";
+import AddOrder from "./page-order/AddOrder";
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
           <Route path="/products/view-products" element={<View/>}/>
           <Route path="/products/inventory" element={<Inventory/>}/>
           <Route path="/products/categories" element={<Category/>}/>
+
+          <Route path="/orders/all-orders" element={<Orders/>}/>
+           <Route path="/add-order" element={<AddOrder/>}/>
           <Route path="/userandpermission" element={<UserAndPermissionPage/>}/>
           <Route path="/notifications" element={<NotificationsPage />} />
         </Route>
