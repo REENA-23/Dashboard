@@ -14,6 +14,7 @@ import Inventory from "./page-product/Inventory";
 import Category from "./page-product/Category";
 import Orders from "./page-order/Orders";
 import AddOrder from "./page-order/AddOrder";
+import Customers from "./page-customers/Customers";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
 
           <Route path="/orders/all-orders" element={<Orders/>}/>
            <Route path="/add-order" element={<AddOrder/>}/>
+
+           <Route path="/customers" elemet={<Customers/>}/>
+           
           <Route path="/userandpermission" element={<UserAndPermissionPage/>}/>
           <Route path="/notifications" element={<NotificationsPage />} />
         </Route>
