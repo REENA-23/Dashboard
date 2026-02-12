@@ -141,7 +141,7 @@ export default function NewProduct() {
               {/* Size Chart */}
               <div>
                 <p className="text-sm text-gray-600 mb-1">Product Size Chart</p>
-                <div className="border border-dashed border-gray-300 bg-[#f4f4f4] rounded-lg min-h-[160px] flex flex-col items-center justify-center">
+                <div className="border border-dashed border-gray-300 bg-[#f4f4f4] rounded-lg min-h-[170px] flex flex-col items-center justify-center">
                   <FaImage className="text-orange-500 text-2xl mb-2" />
                   <button
                     type="button"

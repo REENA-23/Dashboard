@@ -152,10 +152,9 @@ export default function Orders() {
     setOpenId(openId === id ? null : id);
   };
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    
     <div className="p-3 sm:p-4 md:p-6 bg-[#f6f9fc] min-h-screen">
       <div className="bg-white rounded-xl p-3 sm:p-4 md:p-5">
         {/* HEADER */}
@@ -164,7 +163,7 @@ const navigate = useNavigate();
 
           <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
             {/* Search */}
-            <div className="flex items-center gap-2 border rounded-lg px-3 py-2 bg-white">
+            <div className="flex items-center gap-2 border rounded-lg px-3 py-2 bg-white hover:border-orange-500">
               <FaSearch className="text-gray-400 text-sm" />
               <input
                 type="text"
@@ -174,10 +173,12 @@ const navigate = useNavigate();
             </div>
 
             {/* Today Dropdown */}
-            <button className="flex items-center justify-between gap-2 px-4 py-2 rounded-lg bg-gray-100 text-sm">
-              Today
+            <select className="flex items-center font-switzer justify-between gap-1 px-4 py-2 rounded-lg bg-gray-100 text-sm ">
+              <option>Today</option>
+              <option>Last 7 days</option>
+              <option>Last 30 days</option>
               <FaChevronDown className="text-xs" />
-            </button>
+            </select>
 
             {/* Add Order */}
             <button

@@ -6,15 +6,24 @@ export default function SectionCard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-4 sm:mb-5">
         <div className="flex items-center gap-2">
-          <h2 className="text-base sm:text-lg md:text-xl font-semibold">
+          <h2 className="text-base sm:text-lg md:text-xl font-switzer font-semibold">
             Section 1
           </h2>
           <FaChevronDown className="text-orange-500 text-xs sm:text-sm" />
         </div>
 
-        <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gray-100 flex items-center justify-center text-orange-500 hover:bg-gray-200 transition">
-          <FaPlus className="text-sm sm:text-base" />
-        </button>
+        <div className="relative group">
+          <button
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gray-100 flex items-center justify-center text-orange-500 hover:bg-gray-200 transition">
+            <FaPlus className="text-sm sm:text-base transform transition-transform duration-500 group-hover:rotate-[180deg]"/>
+          </button>
+
+          {/* Tooltip: left side */}
+          <div
+            className="absolute right-full top-1/2 -translate-y-1/2 mr-3 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-xs sm:text-sm text-gray-700 px-4 py-2 rounded-lg shadow-sm pointer-events-none">
+            Add new section
+          </div>
+        </div>
       </div>
 
       {/* Form */}
