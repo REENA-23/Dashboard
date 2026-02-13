@@ -29,12 +29,11 @@ export default function Review() {
     <div className="bg-[#eef2f6] p-3 sm:p-4 md:p-6 min-h-screen">
       <div className="bg-white rounded-2xl shadow-sm p-3 sm:p-4 md:p-6">
         {/* Header + Filters */}
-        <div className="flex flex-col gap-4 mb-6">
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4 mb-6">
           <h2 className="text-lg font-semibold">Review</h2>
 
-          <div className="flex flex-wrap gap-3">
-            {/* Search */}
-            <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 w-full sm:w-64">
+          <div className="flex flex-col md:flex-row flex-wrap gap-3 w-full xl:w-auto">
+            <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 w-full md:w-64">
               <FaSearch size={14} className="text-gray-400" />
               <input
                 type="text"
@@ -43,28 +42,24 @@ export default function Review() {
               />
             </div>
 
-            {/* From */}
             <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 text-sm">
               <span className="text-gray-500">From:</span>
               <span>01/07/2025</span>
               <FaCalendarAlt size={14} className="text-gray-400" />
             </div>
 
-            {/* To */}
             <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 text-sm">
               <span className="text-gray-500">To:</span>
               <span>01/07/2025</span>
               <FaCalendarAlt size={14} className="text-gray-400" />
             </div>
 
-            {/* Last 7 days */}
             <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 text-sm cursor-pointer">
               <span>Last 7 days</span>
               <FaChevronDown size={12} />
             </div>
 
-            {/* Rating */}
-            <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 text-sm cursor-pointer">
+            <div className="flex items-center gap-1 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 text-sm cursor-pointer">
               <span>1</span>
               <FaStar className="text-yellow-400" size={12} />
               <FaChevronDown size={12} />
@@ -132,8 +127,7 @@ export default function Review() {
               )}
 
               {/* Image Placeholder */}
-             <div className="w-full h-40 sm:h-44 md:h-48 lg:h-56 bg-gray-100 rounded-xl mb-4" />
-
+              <div className="w-full h-40 sm:h-44 md:h-48 lg:h-56 bg-gray-100 rounded-xl mb-4" />
 
               {/* Dots */}
               <div className="flex justify-center gap-1 mb-3">

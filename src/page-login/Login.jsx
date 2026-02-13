@@ -84,7 +84,7 @@ export default function Login() {
               {/* Sign In */}
               <button
                 onClick={() => navigate("/dashboard")}
-                className="font-switzer w-full h-[42px] bg-orange-500 text-white rounded-md font-medium hover:bg-orange-600 transition mb-4 text-[13px]"
+                className="font-switzer w-full h-[42px] bg-orange-500 text-white rounded-md font-medium hover:bg-orange-600 transition mb-4 "
               >
                 Sign in
               </button>

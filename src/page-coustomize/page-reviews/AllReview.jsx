@@ -105,9 +105,9 @@ function AllReview() {
           className="
     grid
     grid-cols-1
-    sm:grid-cols-2
+    sm:grid-cols-1
     md:grid-cols-2
-    lg:grid-cols-3
+    lg:grid-cols-2
     xl:grid-cols-4
     2xl:grid-cols-5
     gap-5
@@ -138,7 +138,7 @@ function AllReview() {
                 </div>
 
                 {/* Image */}
-                <div className="w-full h-36 sm:h-40 md:h-44 lg:h-60 rounded-xl bg-gray-100 mx-auto mt-8" />
+                <div className="w-full h-40 sm:h-44 md:h-48 lg:h-56 bg-gray-100 rounded-xl mb-4" />
 
                 {/* Content */}
                 <div className="text-center mt-4">
@@ -150,9 +150,9 @@ function AllReview() {
                       <FaStar key={i} size={14} />
                     ))}
                   </div>
-                  
+
                   <p className="text-gray-400 text-xs sm:text-sm mt-1">
-                   -rena Chaudhari
+                    -rena Chaudhari
                   </p>
                 </div>
               </div>

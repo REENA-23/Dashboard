@@ -91,7 +91,7 @@ function View() {
         <table className="w-full min-w-[900px] text-sm">
           {/* Head */}
           <thead>
-            <tr className="border-b border-gray-100 text-gray-500">
+            <tr className="border-b border-gray-100 text-[15px] font-switzer">
               <th className="py-3 text-left">Sr.</th>
               <th className="py-3 text-left">Product</th>
               <th className="py-3 text-left">Inventory</th>
@@ -104,7 +104,7 @@ function View() {
           </thead>
 
           {/* Body */}
-          <tbody>
+          <tbody className="text-[14px] font-switzer">
             {products.map((item) => (
               <tr key={item.id} className="border-b border-gray-100">
                 {/* Sr */}

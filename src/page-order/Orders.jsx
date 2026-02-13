@@ -147,19 +147,36 @@ const statusStyle = (status) => {
 
 export default function Orders() {
   const [openId, setOpenId] = useState(null);
+  const [activeStatus, setActiveStatus] = useState("All");
 
   const toggleRow = (id) => {
     setOpenId(openId === id ? null : id);
   };
 
   const navigate = useNavigate();
+  const statusTabs = [
+    "All",
+    "Pending",
+    "Confirmed",
+    "Processing",
+    "Picked",
+    "Shipped",
+    "Cancelled",
+  ];
+
+  const filteredOrders =
+    activeStatus === "All"
+      ? orders
+      : orders.filter(
+          (order) => order.status.toLowerCase() === activeStatus.toLowerCase(),
+        );
 
   return (
     <div className="p-3 sm:p-4 md:p-6 bg-[#f6f9fc] min-h-screen">
       <div className="bg-white rounded-xl p-3 sm:p-4 md:p-5">
         {/* HEADER */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
-          <h2 className="text-lg font-semibold">All Orders</h2>
+          <h2 className="text-xl font-semibold">All Orders</h2>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
             {/* Search */}
@@ -183,11 +200,28 @@ export default function Orders() {
             {/* Add Order */}
             <button
               onClick={() => navigate("/add-order")}
-              className="px-4 py-2 rounded-lg bg-orange-500 text-white text-sm font-medium"
+              className="px-4 py-2 rounded-lg bg-orange-500 text-white text-[15px] font-medium"
             >
               Add Order
             </button>
           </div>
+        </div>
+        {/* STATUS TABS */}
+        <div className="flex gap-20 border-b mb-4 overflow-x-auto">
+          {statusTabs.map((status) => (
+            <button
+              key={status}
+              onClick={() => setActiveStatus(status)}
+              className={`pb-2 text-sm whitespace-nowrap transition
+        ${
+          activeStatus === status
+            ? "text-orange-500 border-b-2 border-orange-500 font-medium text-[15px]"
+            : "text-gray-500 hover:text-black"
+        }`}
+            >
+              {status}
+            </button>
+          ))}
         </div>
 
         {/* MOBILE CARDS  */}
@@ -276,7 +310,7 @@ export default function Orders() {
         {/*  DESKTOP TABLE */}
         <div className="hidden md:block overflow-x-auto">
           <table className="w-full min-w-[800px] text-sm">
-            <thead className="border-b text-gray-500">
+            <thead className="border-b  text-[15px] font-semibold">
               <tr>
                 <th className="py-3 text-left">Sr.</th>
                 <th className="py-3 text-left">Order Id</th>

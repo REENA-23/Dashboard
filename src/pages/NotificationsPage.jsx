@@ -121,7 +121,7 @@ export default function NotificationsPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-6 border-b mb-4 overflow-x-auto">
+      <div className="flex gap-20 border-b mb-4 overflow-x-auto">
         {TABS.map((tab) => (
           <button
             key={tab}

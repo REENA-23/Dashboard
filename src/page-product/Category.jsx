@@ -93,7 +93,7 @@ export default function Category() {
         <div className="min-w-[1100px]">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-200 text-gray-600">
+              <tr className="border-b border-gray-200 text-[15px] font-switzer">
                 <th className="py-3 text-left">Sr.</th>
                 <th className="py-3 text-left">Category</th>
                 <th className="py-3 text-left">No. of Products</th>
@@ -105,7 +105,7 @@ export default function Category() {
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="text-[14px] font-switzer">
               {data.map((item) => (
                 <tr key={item.id} className="border-b border-gray-100">
                   <td className="py-4">{item.id}</td>

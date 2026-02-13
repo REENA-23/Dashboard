@@ -110,25 +110,25 @@ export default function Inventory() {
         <table className="w-full min-w-[1000px] text-sm">
           {/* Head */}
           <thead>
-            <tr className="border-b border-gray-200 text-gray-600">
+            <tr className="border-b border-gray-200 text-[15px] font-switzer">
               <th className="py-3 text-left">Sr.</th>
-              <th className="py-3 text-left">Product</th>
+              <th className="py-3 pl-8 text-left">Product</th>
               <th className="py-3 text-left">Inventory</th>
               <th className="py-3 text-left">Category</th>
               <th className="py-3 text-left">Stock Status</th>
               <th className="py-3 text-left">Total Units Sold</th>
               <th className="py-3 text-left">Return Rate (%)</th>
-              <th className="py-3 text-left">Action</th>
+              <th className="py-3 pl-12 text-left">Action</th>
             </tr>
           </thead>
 
           {/* Body */}
-          <tbody>
+          <tbody className="text-[14px] font-switzer">
             {data.map((item) => (
               <tr key={item.id} className="border-b border-gray-100">
                 <td className="py-4 text-gray-600">{item.id}</td>
 
-                <td className="py-4 flex items-center gap-4">
+                <td className="py-4 pl-4 flex items-center gap-4">
                   <div className="w-12 h-12 bg-gray-300 rounded-md shrink-0" />
                   <span className="text-gray-700 font-medium">Product Name</span>
                 </td>

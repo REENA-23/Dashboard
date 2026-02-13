@@ -59,6 +59,12 @@ function SideMenu({ isOpen, onClose }) {
     } else if (path.startsWith("/dashboard")) {
       setActiveMenu("dashboard");
       setOpenMenu(null);
+    } else if (path.startsWith("/dashboard")) {
+      setActiveMenu("dashboard");
+      setOpenMenu(null);
+    } else {
+      setActiveMenu(null);
+      setOpenMenu(null);
     }
   }, [location.pathname]);
 
@@ -103,7 +109,7 @@ function SideMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop (mobile) */}
+      {/* Backdrop*/}
       {isOpen && (
         <div
           onClick={onClose}
@@ -121,7 +127,7 @@ function SideMenu({ isOpen, onClose }) {
         `}
       >
         {/* Header */}
-        <div className="flex justify-center items-center px-6 py-8">
+        <div className="flex justify-center items-center px-6 py-12">
           <div className="w-[64px] h-[64px] font-ivymode rounded-full bg-black text-white flex items-center justify-center font-bold text-xl">
             TWB
           </div>
@@ -232,7 +238,7 @@ function SideMenu({ isOpen, onClose }) {
               if (openMenu !== "products") {
                 setOpenMenu("products");
                 setActiveMenu("add-product");
-                navigate("/products/add-product"); 
+                navigate("/products/add-product");
               } else {
                 setOpenMenu(null);
               }
@@ -293,7 +299,7 @@ function SideMenu({ isOpen, onClose }) {
               if (openMenu !== "orders") {
                 setOpenMenu("orders");
                 setActiveMenu("all-orders");
-                navigate("/orders/all-orders"); 
+                navigate("/orders/all-orders");
               } else {
                 setOpenMenu(null);
               }

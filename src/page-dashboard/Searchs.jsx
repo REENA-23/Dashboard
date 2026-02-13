@@ -43,11 +43,6 @@ function Searchs({ onMenuClick }) {
 
         {/* Admin Info */}
         <div className="hidden sm:flex items-center gap-3 cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg transition">
-          {/* Avatar */}
-          <div className="w-9 h-9 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-semibold">
-            A
-          </div>
-
           {/* Name */}
           <div className="text-sm leading-tight">
             <div className="font-medium text-gray-800">Admin User</div>

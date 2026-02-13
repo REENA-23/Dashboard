@@ -31,7 +31,7 @@ export default function Customers() {
 
       {/* Tabs */}
       <div className="border-b border-gray-300 mb-6">
-        <div className="flex gap-6 text-gray-500 overflow-x-auto whitespace-nowrap">
+        <div className="flex gap-20 text-gray-500 overflow-x-auto whitespace-nowrap">
           <button className="text-black border-b-2 border-orange-500 pb-2">
             All
           </button>
@@ -90,7 +90,7 @@ export default function Customers() {
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full min-w-[1000px] text-sm">
           <thead>
-            <tr className="border-b border-gray-200 text-gray-600">
+            <tr className="border-b border-gray-200 text-[15px] font-switzer">
               <th className="py-3 text-center">Sr.</th>
               <th className="py-3 text-center">Name</th>
               <th className="py-3 text-center">Email id</th>
@@ -101,7 +101,7 @@ export default function Customers() {
             </tr>
           </thead>
 
-          <tbody>
+          <tbody className="font-switzer text-[14px]">
             {data.map((i) => (
               <tr key={i} className="border-b border-gray-100">
                 <td className="py-4 text-gray-600 text-center">{i}</td>
