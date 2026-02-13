@@ -117,12 +117,12 @@ function SideMenu({ isOpen, onClose }) {
           fixed top-0 left-0 h-screen w-[270px] bg-white border-r z-50
           transform transition-transform duration-300
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0
+          md:translate-x-0 font-inter 
         `}
       >
         {/* Header */}
-        <div className="flex justify-between items-center px-6 py-6">
-          <div className="w-14 h-14 font-ivymode rounded-full bg-black text-white flex items-center justify-center font-bold text-xl">
+        <div className="flex justify-center items-center px-6 py-8">
+          <div className="w-[64px] h-[64px] font-ivymode rounded-full bg-black text-white flex items-center justify-center font-bold text-xl">
             TWB
           </div>
 
@@ -133,7 +133,7 @@ function SideMenu({ isOpen, onClose }) {
         </div>
 
         {/* MENU */}
-        <div className="flex-1 px-4 space-y-2 text-sm overflow-y-auto">
+        <div className="flex-1 px-4 space-y-2 overflow-y-auto">
           {/* DASHBOARD */}
           <button
             onClick={() => {
@@ -143,7 +143,7 @@ function SideMenu({ isOpen, onClose }) {
             className={mainItem(activeMenu === "dashboard")}
           >
             <FaThLarge />
-            <span className="ml-3">Dashboard</span>
+            <span className="ml-3 text-base">Dashboard</span>
           </button>
 
           {/* CUSTOMIZE */}
@@ -162,7 +162,7 @@ function SideMenu({ isOpen, onClose }) {
             )}
           >
             <FaSlidersH />
-            <span className="ml-3">Customize</span>
+            <span className="ml-3 text-base">Customize</span>
             <span className={arrow}>
               {openMenu === "customize" ? (
                 <FaChevronDown />
@@ -240,7 +240,7 @@ function SideMenu({ isOpen, onClose }) {
             className={mainItem(productsChildren.includes(activeMenu))}
           >
             <FaBoxOpen />
-            <span className="ml-3">Products</span>
+            <span className="ml-3 text-base">Products</span>
             <span className={arrow}>
               {openMenu === "products" ? <FaChevronDown /> : <FaChevronRight />}
             </span>
@@ -284,7 +284,7 @@ function SideMenu({ isOpen, onClose }) {
             className={mainItem(activeMenu === "customers")}
           >
             <FaUsers />
-            <span className="ml-3">Customers</span>
+            <span className="ml-3 text-base">Customers</span>
           </button>
 
           {/* ORDERS */}
@@ -301,7 +301,7 @@ function SideMenu({ isOpen, onClose }) {
             className={mainItem(ordersChildren.includes(activeMenu))}
           >
             <FaShoppingBag />
-            <span className="ml-3">Orders</span>
+            <span className="ml-3 text-base">Orders</span>
             <span className={arrow}>
               {openMenu === "orders" ? <FaChevronDown /> : <FaChevronRight />}
             </span>
@@ -339,7 +339,7 @@ function SideMenu({ isOpen, onClose }) {
             className={mainItem(activeMenu === "discounts")}
           >
             <FaPercentage />
-            <span className="ml-3">Discounts</span>
+            <span className="ml-3 text-base">Discounts</span>
           </button>
 
           {/* USERS & PERMISSIONS */}
@@ -351,7 +351,7 @@ function SideMenu({ isOpen, onClose }) {
             className={mainItem(activeMenu === "users")}
           >
             <FaUsers />
-            <span className="ml-3">User & Permissions</span>
+            <span className="ml-3 text-base">User & Permissions</span>
           </button>
         </div>
       </div>

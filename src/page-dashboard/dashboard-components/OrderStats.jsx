@@ -74,7 +74,7 @@ export default function OrderStats() {
   return (
     <div className="w-full bg-white rounded-xl p-4 sm:p-6 shadow-sm">
       {/* Title */}
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">Order stats</h2>
+      <h2 className="text-xl font-bold text-gray-900 mb-4">Order stats</h2>
 
       {/* Desktop Table */}
       <div className="hidden lg:block overflow-x-auto">

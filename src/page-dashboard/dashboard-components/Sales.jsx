@@ -37,7 +37,7 @@ export default function Sales() {
       <div className="mb-4">
         {/* Row 1: Title + Dots */}
         <div className="flex items-center justify-between">
-          <h2 className="text-base lg:text-lg font-semibold text-gray-900">
+          <h2 className="text-base lg:text-xl font-bold text-gray-900">
             Sales
           </h2>
 

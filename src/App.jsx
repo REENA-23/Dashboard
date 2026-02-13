@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
+
 import Login from "./page-login/Login";
 import DashboardLayout from "./DashboardLayout";
 import DashboardPage from "./pages/DashboardPage";
@@ -15,10 +17,19 @@ import Category from "./page-product/Category";
 import Orders from "./page-order/Orders";
 import AddOrder from "./page-order/AddOrder";
 import Customers from "./page-customers/Customers";
+import AddCustomer from "./page-customers/AddCustomer";
+import DiscountPage from "./page-discount/DiscountPage";
+import AmountProduct from "./page-discount/AmountProduct";
+import AmountOrder from "./page-discount/AmountOrder";
+import BuyXGetY from "./page-discount/BuyXGetY";
+import FreeShip from "./page-discount/FreeShip";
+import Review from "./page-coustomize/page-reviews/Review";
+import AllReview from "./page-coustomize/page-reviews/AllReview";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         {/* First page */}
         <Route path="/" element={<Login />} />
@@ -27,21 +38,33 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/customize/navbar" element={<NavbarPage />} />
-          <Route path="/customize/sliders" element={<SliderPage/>}/>
-          <Route path="/customize/sections" element={<SectionPage/>}/>
-          <Route path="/customize/category" element={<CategoriesPage/>}/>
+          <Route path="/customize/sliders" element={<SliderPage />} />
+          <Route path="/customize/sections" element={<SectionPage />} />
+          <Route path="/customize/category" element={<CategoriesPage />} />
+          <Route path="/customize/review" element={<Review />} />
+          <Route path="/allreviewpage" element={<AllReview />} />
 
-          <Route path="/products/add-product" element={<NewProduct/>}/>
-          <Route path="/products/view-products" element={<View/>}/>
-          <Route path="/products/inventory" element={<Inventory/>}/>
-          <Route path="/products/categories" element={<Category/>}/>
+          <Route path="/products/add-product" element={<NewProduct />} />
+          <Route path="/products/view-products" element={<View />} />
+          <Route path="/products/inventory" element={<Inventory />} />
+          <Route path="/products/categories" element={<Category />} />
 
-          <Route path="/orders/all-orders" element={<Orders/>}/>
-           <Route path="/add-order" element={<AddOrder/>}/>
+          <Route path="/orders/all-orders" element={<Orders />} />
+          <Route path="/add-order" element={<AddOrder />} />
 
-           <Route path="/customers" elemet={<Customers/>}/>
-           
-          <Route path="/userandpermission" element={<UserAndPermissionPage/>}/>
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/add-customer" element={<AddCustomer />} />
+
+          <Route path="/discounts" element={<DiscountPage />} />
+          <Route path="/amountproductpage" element={<AmountProduct />} />
+          <Route path="/amountorderpage" element={<AmountOrder />} />
+          <Route path="/buyxgetypage" element={<BuyXGetY />} />
+          <Route path="/freeshippage" element={<FreeShip />} />
+
+          <Route
+            path="/userandpermission"
+            element={<UserAndPermissionPage />}
+          />
           <Route path="/notifications" element={<NotificationsPage />} />
         </Route>
       </Routes>

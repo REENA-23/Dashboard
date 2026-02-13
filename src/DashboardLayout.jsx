@@ -20,7 +20,7 @@ function DashboardLayout() {
         <Searchs onMenuClick={() => setSidebarOpen(true)} />
 
         {/* Page Content */}
-        <main className="mt-16 p-4 md:p-6 bg-gray-50 min-h-screen">
+        <main className="mt-16 p-4 md:p-6 bg-gray-50 min-h-screen bg-[#F0F5F9]">
           <Outlet />
         </main>
       </div>
