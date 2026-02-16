@@ -45,7 +45,7 @@ export default function OrderStats() {
               {/* Product */}
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-lg bg-gray-300 shrink-0" />
-                <span className="text-gray-700 truncate">{order.product}</span>
+                <span className="text-gray-700 leading-tight">{order.product}</span>
               </div>
 
               {/* Qty */}
