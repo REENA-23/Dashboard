@@ -12,9 +12,8 @@ export default function DashboardPage() {
       {/* TOP STATS ROW */}
       <StatsRow />
 
-      {/* ===== DESKTOP / NEST HUB MAX (2 COLUMNS) ===== */}
-  <div className="mt-6 grid grid-cols-1 xl:grid-cols-[minmax(0,4fr)_minmax(260px,1fr)] gap-4 items-start w-full">
-
+      {/*  DESKTOP  */}
+      <div className="mt-6 grid grid-cols-1 xl:grid-cols-[minmax(0,4fr)_minmax(260px,1fr)] gap-4 items-start w-full">
         {/* LEFT COLUMN */}
         <div className="space-y-6 min-w-0">
           <OrderStats />
@@ -30,7 +29,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* ===== TABLET / iPAD / NEST HUB (STACKED) ===== */}
+      {/* TABLET / iPAD / NEST HUB */}
       <div className="mt-6 lg:hidden space-y-6">
         {/* Full width */}
         <OrderStats />
@@ -38,10 +37,7 @@ export default function DashboardPage() {
         {/* 2 cards row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <RightSidebarStats />
-          <div className="space-y-4">
-            {/* Today’s Orders is inside RightSidebarStats already,
-                so if you want to split them later we can */}
-          </div>
+          <div className="space-y-4"></div>
         </div>
 
         {/* Full width charts */}

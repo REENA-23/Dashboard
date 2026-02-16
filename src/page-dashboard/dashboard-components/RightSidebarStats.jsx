@@ -18,15 +18,10 @@ export default function RightSidebarStats() {
 
   return (
     <div className="w-full min-w-0">
-      {/* 
-        Layout rules:
-        - mobile: 1 column
-        - tablet / nest hub: 2 columns
-        - desktop (lg): 1 column (right sidebar stack)
-      */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 items-stretch min-w-0">
         
-        {/* ================= Best Selling ================= */}
+        {/*  Best Selling  */}
         <div className="bg-white rounded-xl p-4 lg:p-5 shadow-sm min-w-0 flex flex-col">
           <div className="mb-3">
             <h2 className="font-switzer text-lg lg:text-xl font-semibold text-gray-900 truncate">
@@ -55,7 +50,7 @@ export default function RightSidebarStats() {
           </div>
         </div>
 
-        {/* ================= Today's Orders ================= */}
+        {/*  Today's Orders  */}
         <div className="bg-white rounded-xl p-4 lg:p-5 shadow-sm min-w-0 flex flex-col">
           <h2 className="font-switzer text-lg lg:text-xl font-semibold text-gray-900 mb-8 truncate">
             Today&apos;s Orders

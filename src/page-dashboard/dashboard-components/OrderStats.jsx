@@ -21,7 +21,7 @@ export default function OrderStats() {
     <div className="w-full bg-white rounded-xl p-4 sm:p-6 shadow-sm overflow-x-hidden">
       <h2 className="text-xl font-bold text-gray-900 mb-6">Order stats</h2>
 
-      {/* ================= TABLE (LG AND UP: DESKTOP + NEST HUB MAX) ================= */}
+      {/* TABLE */}
       <div className="hidden lg:block w-full overflow-x-hidden">
         {/* Header */}
         <div className="grid grid-cols-[40px_2fr_60px_130px_150px_1.5fr] gap-3 items-center text-sm font-semibold text-gray-900 border-b pb-3">
@@ -75,7 +75,7 @@ export default function OrderStats() {
         </div>
       </div>
 
-      {/* ================= CARDS (BELOW LG: TABLET + MOBILE) ================= */}
+      {/*  CARDS */}
       <div className="lg:hidden space-y-4">
         {orders.map((order) => (
           <div
