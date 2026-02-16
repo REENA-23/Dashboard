@@ -33,16 +33,16 @@ export default function OrdersVsVisitorsGauge() {
   );
 
   return (
-    <div className="w-full bg-white rounded-2xl p-4 min-w-0 overflow-hidden">
-      <h3 className="mb-2 font-switzer text-lg md:text-xl font-semibold text-black truncate">
+    <div className="w-full bg-white rounded-2xl p-4 min-w-0 overflow-hidden pt-4">
+      <h3 className="mb-2 font-switzer text-base md:text-lg lg:text-xl font-semibold text-black leading-tight">
         Orders Vs Website Visits
       </h3>
 
       {/* SVG wrapper */}
-      <div className="w-full flex justify-center overflow-hidden">
+      <div className="w-full flex justify-center items-center overflow-hidden">
         <svg
           viewBox={`0 0 ${size} ${size / 1.3}`}
-          className="w-full max-w-[260px] h-auto"
+          className="w-full max-w-[220px] sm:max-w-[240px] md:max-w-[260px] h-auto"
           preserveAspectRatio="xMidYMid meet"
         >
           {/* OUTER BIG ARC */}
@@ -75,8 +75,8 @@ export default function OrdersVsVisitorsGauge() {
       </div>
 
       {/* Legend */}
-      <div className="mt-4 space-y-2">
-        <div className="flex items-center justify-between text-[#8aa0b6]">
+      <div className="mt-4 space-y-2 text-sm min-w-0 mb-6">
+        <div className="flex items-center justify-between text-[#8aa0b6] min-w-0">
           <span className="flex items-center gap-2 truncate">
             <span className="w-3 h-3 rounded-full border-2 border-[#FF6A0D] shrink-0"></span>
             Orders
@@ -84,7 +84,7 @@ export default function OrdersVsVisitorsGauge() {
           <span className="shrink-0">60</span>
         </div>
 
-        <div className="flex items-center justify-between text-[#b0bcc9]">
+        <div className="flex items-center justify-between text-[#b0bcc9] min-w-0">
           <span className="flex items-center gap-2 truncate">
             <span className="w-3 h-3 rounded-full border-2 border-[#d1d5db] shrink-0"></span>
             Visitors

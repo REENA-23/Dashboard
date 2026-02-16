@@ -31,31 +31,31 @@ export default function RepeatOrdersChart() {
   const [showMobileOptions, setShowMobileOptions] = useState(false);
 
   return (
-    <div className="bg-white h-[380px] rounded-2xl p-5 w-full max-w-full overflow-x-hidden min-w-0">
+    <div className="bg-white rounded-2xl p-5 w-full min-w-0 overflow-hidden">
       {/* HEADER */}
-      <div className="mb-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-base lg:text-xl font-bold text-gray-900">
+      <div className="mb-4 min-w-0">
+        <div className="flex items-start justify-between gap-3 min-w-0">
+          <h2 className="text-base lg:text-xl font-bold text-gray-900 leading-tight">
             Repeat Orders
           </h2>
 
           {/* 3 dots for mobile + tablets */}
           <button
-            className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+            className="lg:hidden p-2 rounded-md hover:bg-gray-100 shrink-0"
             onClick={() => setShowMobileOptions((prev) => !prev)}
           >
             <HiOutlineDotsVertical className="text-xl text-gray-500" />
           </button>
 
           {/* Desktop only */}
-          <div className="hidden lg:flex items-center gap-6 min-w-0">
+          <div className="hidden lg:flex items-center gap-4 min-w-0">
             {/* Tabs */}
-            <div className="flex border border-gray-200 rounded-lg overflow-hidden">
+            <div className="flex border border-gray-200 rounded-lg overflow-hidden shrink-0">
               {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActive(tab)}
-                  className={`px-4 py-1.5 text-sm transition ${
+                  className={`px-3 xl:px-4 py-1.5 text-sm transition whitespace-nowrap ${
                     active === tab
                       ? "bg-orange-500 text-white"
                       : "text-gray-500 hover:bg-gray-50"
@@ -68,13 +68,13 @@ export default function RepeatOrdersChart() {
 
             {/* Legend */}
             <div className="flex flex-col gap-2 text-sm min-w-0">
-              <div className="flex items-center gap-2 text-gray-500">
+              <div className="flex items-center gap-2 text-gray-500 min-w-0">
                 <span className="w-3 h-3 rounded-full bg-orange-500 shrink-0"></span>
-                <span className="truncate">Current Repeat Rate</span>
+                <span className="leading-tight">Current Repeat Rate</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-400 min-w-0">
                 <span className="w-3 h-3 rounded-full bg-gray-500 shrink-0"></span>
-                <span className="truncate">Old Repeat Rate</span>
+                <span className="leading-tight">Old Repeat Rate</span>
               </div>
             </div>
           </div>
@@ -82,13 +82,13 @@ export default function RepeatOrdersChart() {
 
         {/* Mobile + Tablet Options */}
         {showMobileOptions && (
-          <div className="lg:hidden mt-3 space-y-3">
+          <div className="lg:hidden mt-3 space-y-3 min-w-0">
             <div className="flex border border-gray-200 rounded-lg overflow-hidden">
               {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActive(tab)}
-                  className={`flex-1 px-3 py-1.5 text-xs transition ${
+                  className={`flex-1 px-2 py-1.5 text-xs transition ${
                     active === tab
                       ? "bg-orange-500 text-white"
                       : "text-gray-500 hover:bg-gray-50"
@@ -114,12 +114,9 @@ export default function RepeatOrdersChart() {
       </div>
 
       {/* CHART */}
-      <div className="h-[260px] w-full max-w-full overflow-x-hidden min-w-0">
+      <div className="h-[260px] w-full min-w-0 overflow-hidden">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            data={data}
-            margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
-          >
+          <LineChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
             <CartesianGrid stroke="#EEF2F7" vertical={false} />
 
             <XAxis

@@ -43,21 +43,23 @@ export default function StatsRow() {
   ];
 
   return (
-    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 min-w-0 overflow-x-hidden">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       {stats.map((item, index) => (
         <div
           key={index}
-          className="bg-white rounded-xl p-4 sm:p-5 flex items-center justify-between shadow-sm w-full min-w-0 overflow-hidden"
+          className="bg-white rounded-xl p-4 sm:p-5 shadow-sm w-full flex items-center justify-between"
         >
           {/* Left content */}
-          <div className="min-w-0">
-            <p className="text-xs sm:text-sm text-gray-500 font-medium truncate">
+          <div className="flex-1 pr-3">
+            <p className="text-xs sm:text-sm text-gray-500 font-medium leading-tight">
               {item.title}
             </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-1 truncate">
+
+            <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mt-1">
               {item.value}
             </h3>
-            <p className="text-xs sm:text-sm mt-1 truncate">
+
+            <p className="text-xs sm:text-sm mt-1 leading-tight">
               <span className="text-green-500 font-medium">{item.change}</span>{" "}
               <span className="text-gray-400">{item.changeText}</span>
             </p>
