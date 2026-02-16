@@ -1,12 +1,12 @@
 export default function OrdersVsVisitorsGauge() {
   const size = 262;
   const center = size / 2;
-  const radius = 90; // SAME radius for all arcs
+  const radius = 90;
 
-  const outerStroke = 36; // F0F5F9 (thick shell)
-  const innerStroke = 12; // E6E7E7 (thin track)
+  const outerStroke = 36;
+  const innerStroke = 12;
 
-  const progress = 0.08; // short orange segment like Figma
+  const progress = 0.08;
 
   const polarToCartesian = (cx, cy, r, angle) => ({
     x: cx + r * Math.cos(angle),
@@ -29,64 +29,67 @@ export default function OrdersVsVisitorsGauge() {
     center,
     radius,
     Math.PI + startOffset,
-    Math.PI + startOffset + Math.PI * progress,
+    Math.PI + startOffset + Math.PI * progress
   );
 
   return (
-    <div className="w-full  p-3 bg-white rounded-2xl">
-      <h3 className="mb-1 font-switzer text-xl font-semibold text-black">
+    <div className="w-full bg-white rounded-2xl p-4 min-w-0 overflow-hidden">
+      <h3 className="mb-2 font-switzer text-lg md:text-xl font-semibold text-black truncate">
         Orders Vs Website Visits
       </h3>
 
-      <svg
-        width={300}
-        height={200}
-        viewBox={`0 0 ${size} ${size / 1.3}`}
-        className="overflow-visible mx-auto mt-10"
-      >
-        {/* OUTER BIG ARC (F0F5F9) */}
-        <path
-          d={fullArc}
-          fill="none"
-          stroke="#F0F5F9"
-          strokeWidth={outerStroke}
-          strokeLinecap="butt"
-        />
+      {/* SVG wrapper */}
+      <div className="w-full flex justify-center overflow-hidden">
+        <svg
+          viewBox={`0 0 ${size} ${size / 1.3}`}
+          className="w-full max-w-[260px] h-auto"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          {/* OUTER BIG ARC */}
+          <path
+            d={fullArc}
+            fill="none"
+            stroke="#F0F5F9"
+            strokeWidth={outerStroke}
+            strokeLinecap="butt"
+          />
 
-        {/* INNER TRACK ARC (E6E7E7) */}
-        <path
-          d={fullArc}
-          fill="none"
-          stroke="#E6E7E7"
-          strokeWidth={innerStroke}
-          strokeLinecap="butt"
-        />
+          {/* INNER TRACK ARC */}
+          <path
+            d={fullArc}
+            fill="none"
+            stroke="#E6E7E7"
+            strokeWidth={innerStroke}
+            strokeLinecap="butt"
+          />
 
-        {/* PROGRESS ARC (FF6A0D) */}
-        <path
-          d={progressArc}
-          fill="none"
-          stroke="#FF6A0D"
-          strokeWidth={innerStroke}
-          strokeLinecap="butt"
-        />
-      </svg>
+          {/* PROGRESS ARC */}
+          <path
+            d={progressArc}
+            fill="none"
+            stroke="#FF6A0D"
+            strokeWidth={innerStroke}
+            strokeLinecap="butt"
+          />
+        </svg>
+      </div>
 
-      <div className="mb-10">
+      {/* Legend */}
+      <div className="mt-4 space-y-2">
         <div className="flex items-center justify-between text-[#8aa0b6]">
-          <span className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full border-2 border-[#FF6A0D]"></span>
+          <span className="flex items-center gap-2 truncate">
+            <span className="w-3 h-3 rounded-full border-2 border-[#FF6A0D] shrink-0"></span>
             Orders
           </span>
-          <span>60</span>
+          <span className="shrink-0">60</span>
         </div>
 
         <div className="flex items-center justify-between text-[#b0bcc9]">
-          <span className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full border-2 border-[#d1d5db]"></span>
+          <span className="flex items-center gap-2 truncate">
+            <span className="w-3 h-3 rounded-full border-2 border-[#d1d5db] shrink-0"></span>
             Visitors
           </span>
-          <span>1200</span>
+          <span className="shrink-0">1200</span>
         </div>
       </div>
     </div>

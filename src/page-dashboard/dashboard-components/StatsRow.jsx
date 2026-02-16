@@ -43,21 +43,21 @@ export default function StatsRow() {
   ];
 
   return (
-    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 min-w-0 overflow-x-hidden">
       {stats.map((item, index) => (
         <div
           key={index}
-          className="bg-white rounded-xl p-4 sm:p-5 flex items-center justify-between shadow-sm"
+          className="bg-white rounded-xl p-4 sm:p-5 flex items-center justify-between shadow-sm w-full min-w-0 overflow-hidden"
         >
           {/* Left content */}
-          <div>
-            <p className="text-xs sm:text-sm text-gray-500 font-medium">
+          <div className="min-w-0">
+            <p className="text-xs sm:text-sm text-gray-500 font-medium truncate">
               {item.title}
             </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-1 truncate">
               {item.value}
             </h3>
-            <p className="text-xs sm:text-sm mt-1">
+            <p className="text-xs sm:text-sm mt-1 truncate">
               <span className="text-green-500 font-medium">{item.change}</span>{" "}
               <span className="text-gray-400">{item.changeText}</span>
             </p>
@@ -65,7 +65,7 @@ export default function StatsRow() {
 
           {/* Right icon */}
           <div
-            className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center ${item.iconBg}`}
+            className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center ${item.iconBg} shrink-0`}
           >
             {item.icon}
           </div>

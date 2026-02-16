@@ -90,19 +90,17 @@ function SideMenu({ isOpen, onClose }) {
 
   const mainItem = (isActive) =>
     `flex items-center w-full px-5 py-3 rounded-xl transition text-sm
-     ${
-       isActive
-         ? "bg-orange-500 text-white font-medium"
-         : "text-gray-500 hover:bg-gray-100"
-     }`;
+     ${isActive
+      ? "bg-orange-500 text-white font-medium"
+      : "text-gray-500 hover:bg-gray-100"
+    }`;
 
   const subItem = (name) =>
-    `ml-10 mr-4 px-4 py-2 rounded-lg text-sm text-left transition
-     ${
-       activeMenu === name
-         ? "bg-orange-100 text-orange-600 font-medium"
-         : "text-gray-500 hover:text-black"
-     }`;
+    `w-[200px] ml-6 mr-4 px-4 py-2 rounded-xl text-sm text-left transition
+     ${activeMenu === name
+      ? "bg-orange-100 text-orange-600 font-medium"
+      : "text-gray-500 hover:text-black"
+    }`;
 
   const arrow =
     "ml-auto w-4 h-4 flex items-center justify-center text-gray-400";
@@ -171,9 +169,9 @@ function SideMenu({ isOpen, onClose }) {
             <span className="ml-3 text-base">Customize</span>
             <span className={arrow}>
               {openMenu === "customize" ? (
-                <FaChevronDown />
+                <FaChevronDown className="text-white" />
               ) : (
-                <FaChevronRight />
+                <FaChevronRight className="text-white" />
               )}
             </span>
           </button>
@@ -248,7 +246,7 @@ function SideMenu({ isOpen, onClose }) {
             <FaBoxOpen />
             <span className="ml-3 text-base">Products</span>
             <span className={arrow}>
-              {openMenu === "products" ? <FaChevronDown /> : <FaChevronRight />}
+              {openMenu === "products" ? <FaChevronDown className="text-white" /> : <FaChevronRight className="text-white" />}
             </span>
           </button>
 
@@ -309,7 +307,7 @@ function SideMenu({ isOpen, onClose }) {
             <FaShoppingBag />
             <span className="ml-3 text-base">Orders</span>
             <span className={arrow}>
-              {openMenu === "orders" ? <FaChevronDown /> : <FaChevronRight />}
+              {openMenu === "orders" ? <FaChevronDown className="text-white" /> : <FaChevronRight className="text-white" />}
             </span>
           </button>
 

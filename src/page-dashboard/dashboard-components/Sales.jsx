@@ -31,26 +31,24 @@ export default function Sales() {
   const [showMobileOptions, setShowMobileOptions] = useState(false);
 
   return (
-    <div className="bg-white h-[380px] rounded-2xl p-5 w-full">
-      {/*HEADER ROW  */}
-
-      <div className="mb-4">
-        {/* Row 1: Title + Dots */}
-        <div className="flex items-center justify-between">
-          <h2 className="text-base lg:text-xl font-bold text-gray-900">
+    <div className="bg-white h-[380px] rounded-2xl p-5 w-full max-w-full min-w-0 overflow-x-hidden">
+      {/* HEADER */}
+      <div className="mb-4 min-w-0">
+        <div className="flex items-center justify-between min-w-0">
+          <h2 className="text-base lg:text-xl font-bold text-gray-900 truncate">
             Sales
           </h2>
 
           {/* 3 dots for mobile + tablets */}
           <button
-            className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+            className="lg:hidden p-2 rounded-md hover:bg-gray-100 shrink-0"
             onClick={() => setShowMobileOptions((prev) => !prev)}
           >
             <HiOutlineDotsVertical className="text-xl text-gray-500" />
           </button>
 
-          {/* Desktop only (lg and up): Tabs + Legend */}
-          <div className="hidden lg:flex items-center gap-6">
+          {/* Desktop only */}
+          <div className="hidden lg:flex items-center gap-6 min-w-0">
             {/* Tabs */}
             <div className="flex border border-gray-200 rounded-lg overflow-hidden">
               {tabs.map((tab) => (
@@ -69,23 +67,22 @@ export default function Sales() {
             </div>
 
             {/* Legend */}
-            <div className="flex flex-col gap-2 text-sm">
-              <div className="flex items-center gap-2 text-gray-500">
-                <span className="w-3 h-3 rounded-full bg-orange-500"></span>
-                <span>Current Repeat Rate</span>
+            <div className="flex flex-col gap-2 text-sm min-w-0">
+              <div className="flex items-center gap-2 text-gray-500 min-w-0">
+                <span className="w-3 h-3 rounded-full bg-orange-500 shrink-0"></span>
+                <span className="truncate">Current Repeat Rate</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
-                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
-                <span>Old Repeat Rate</span>
+              <div className="flex items-center gap-2 text-gray-400 min-w-0">
+                <span className="w-3 h-3 rounded-full bg-gray-500 shrink-0"></span>
+                <span className="truncate">Old Repeat Rate</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Mobile + Tablet Options (show only when dots clicked) */}
+        {/* Mobile + Tablet Options */}
         {showMobileOptions && (
-          <div className="lg:hidden mt-3 space-y-3">
-            {/* Tabs */}
+          <div className="lg:hidden mt-3 space-y-3 min-w-0">
             <div className="flex border border-gray-200 rounded-lg overflow-hidden">
               {tabs.map((tab) => (
                 <button
@@ -102,27 +99,26 @@ export default function Sales() {
               ))}
             </div>
 
-            {/* Legend */}
-            <div className="flex gap-4 text-xs">
-              <div className="flex items-center gap-2 text-gray-500">
-                <span className="w-3 h-3 rounded-full bg-orange-500"></span>
-                <span>Current Repeat Rate</span>
+            <div className="flex gap-4 text-xs min-w-0">
+              <div className="flex items-center gap-2 text-gray-500 min-w-0">
+                <span className="w-3 h-3 rounded-full bg-orange-500 shrink-0"></span>
+                <span className="truncate">Current Repeat Rate</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-400">
-                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
-                <span>Old Repeat Rate</span>
+              <div className="flex items-center gap-2 text-gray-400 min-w-0">
+                <span className="w-3 h-3 rounded-full bg-gray-500 shrink-0"></span>
+                <span className="truncate">Old Repeat Rate</span>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      {/*  CHART */}
-      <div className="h-[260px] w-full">
+      {/* CHART */}
+      <div className="h-[260px] w-full max-w-full min-w-0 overflow-x-hidden">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}
-            margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
+            margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
           >
             <CartesianGrid stroke="#EEF2F7" vertical={false} />
 
@@ -140,10 +136,9 @@ export default function Sales() {
               tickLine={false}
               tick={{ fill: "#94A3B8", fontSize: 12 }}
               tickFormatter={(v) => (v === 0 ? "0" : `${v / 1000}k`)}
-              width={40}
+              width={36}
             />
 
-            {/* Old (gray dashed) */}
             <Line
               type="natural"
               dataKey="old"
@@ -151,15 +146,16 @@ export default function Sales() {
               strokeWidth={2}
               strokeDasharray="5 5"
               dot={false}
+              isAnimationActive={false}
             />
 
-            {/* Current (orange) */}
             <Line
               type="natural"
               dataKey="current"
               stroke="#FF6A0D"
               strokeWidth={3}
               dot={false}
+              isAnimationActive={false}
             />
           </LineChart>
         </ResponsiveContainer>
